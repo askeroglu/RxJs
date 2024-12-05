@@ -1,0 +1,27 @@
+
+<style>
+ 
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: inherit;
+    position: relative;
+  }
+</style>
+
+<main class="main">
+
+    <h1>{{ title }}</h1>
+    <br>
+
+   <app-search></app-search>
+
+   <app-counter></app-counter>
+
+  <app-task></app-task>
+
+</main>
+
+<router-outlet />

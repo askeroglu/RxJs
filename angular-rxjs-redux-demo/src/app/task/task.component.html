@@ -1,0 +1,19 @@
+<div>
+    <h1>Task List</h1>
+    <input
+      type="text"
+      placeholder="Search tasks..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearch(searchQuery)"
+    />
+    <h3>Search Results:</h3>
+    <ul *ngIf="(searchResults$ | async)">
+        <li *ngFor="let task of searchResults$ | async">{{ task.title }}</li>
+    </ul>
+  
+    <h3>All Tasks:</h3>
+    <ul>
+      <li *ngFor="let task of tasks$ | async">{{ task.title }}</li>
+    </ul>
+  </div>
+  
