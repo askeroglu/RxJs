@@ -1,0 +1,21 @@
+<div class="game-container">
+    <div class="board">
+      <div
+        *ngFor="let cell of board$ | async; index as i"
+        class="cell"
+        [ngClass]="{ 'x-cell': cell === 'X', 'o-cell': cell === 'O' }"
+        (click)="playMove(i)"
+      >
+        {{ cell }}
+      </div>
+    </div>
+  
+    <!-- Display game status -->
+    <div class="status" *ngIf="winner$ | async as winner">
+      <p *ngIf="winner !== 'Draw'">{{ winner }} wins!</p>
+      <p *ngIf="winner === 'Draw'">It's a draw!</p>
+    </div>
+  
+    <button class="reset-button" (click)="resetGame()">Reset Game</button>
+  </div>
+  

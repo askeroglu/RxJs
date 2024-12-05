@@ -1,0 +1,82 @@
+$color-x: #ff6347;        
+$color-o: #4682b4;
+$background-color: #f5f5f5;
+$hover-background-color: #e8e8e8;
+$disabled-background-color: #e0e0e0;
+$button-bg: #333;
+$button-bg-hover: #555;
+$font-color: #333;
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: $font-color;
+  margin-top: 20px;
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 8px;
+    margin-top: 20px;
+
+    .cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      font-size: 2.5em;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: $background-color;
+      caret-color: transparent;
+
+      // X and O cell colors
+      &.x-cell {
+        color: $color-x;
+        cursor: default; // Remove cursor for cells marked with X
+      }
+
+      &.o-cell {
+        color: $color-o;
+        cursor: default; // Remove cursor for cells marked with O
+      }
+
+      &.disabled {
+        pointer-events: none;
+        background-color: $disabled-background-color;
+      }
+
+      &:not(.x-cell):not(.o-cell):hover {
+        background-color: $hover-background-color;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .status {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .reset-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: $button-bg;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $button-bg-hover;
+    }
+  }
+}
